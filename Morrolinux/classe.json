@@ -1,0 +1,49 @@
+{
+"persone": [
+    {
+        "nome": "andrea",
+        "cognome": "prestini",
+        "presente": false
+    },
+    {
+        "nome": "mario",
+        "cognome": "mometto",
+        "presente": true
+    },
+    {
+        "nome": "clara",
+        "cognome": "prestini",
+        "presente": true
+    },
+    {
+        "nome": "maria",
+        "cognome": "antonietta",
+        "presente": true
+    },
+    {
+        "nome": "paolo",
+        "cognome": "foresti",
+        "presente": false
+    },
+    {
+        "nome": "francesco",
+        "cognome": "ferrari",
+        "presente": false
+    },
+    {
+        "nome": "mara",
+        "cognome": "mometto",
+        "presente": true
+    },
+    {
+        "nome": "francesca",
+        "cognome": "maffezzoni",
+        "presente": true
+    },
+    {
+        "nome": "stefano",
+        "cognome": "ferrari",
+        "presente": false
+    }
+]
+}
