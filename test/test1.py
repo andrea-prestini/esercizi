@@ -21,7 +21,3 @@ obj1 = Persona("mario rossi")
 print(obj)
 
 print("fine procedura...")
-print("riga aggiunta 1")
-print("riga aggiunta 2")
-print("riga aggiunta 3")
-print("riga aggiunta 4")
