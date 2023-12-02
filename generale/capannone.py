@@ -19,5 +19,5 @@ obj = Capannone(100)
 scarico = [10, 30, 70, 70]
 
 for val in scarico:
-    success = obj.get_from_store(val)
-    time.sleep(0.5)
+    obj.get_from_store(val)
+    time.sleep(1)
