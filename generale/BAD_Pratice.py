@@ -5,31 +5,50 @@ from pathlib import Path
 
 # NOT USE a Default mutable OBJECT
 
-
-def append_number(num, numbers=[]):
+# BAD
+def add_itemBAD(item: str, itemsBAD: list = []):
     # list is mutable objects
-    numbers.append(num)
-    print(num)
-    print(numbers)
-    return numbers
+    itemsBAD.append(item)
+    print(f"ID {id(item)}:", itemsBAD)
+    return itemsBAD
 
 
-x = append_number(1)
-x = append_number(2)
-x = append_number(3)
+list_a = add_itemBAD("a")
+list_b = add_itemBAD("b")
+# Side effects
+# ID 123: ["a"]
+# ID 123: ["a", "b] le 2 liste hanno lo stesso id e vengono incrementate!
 
 
-def string_append(s, string="Ciao"):
-    # string is immutable object
-    string += s
-    print(s)
-    print(string)
-    return string
+# GOOD
+# check if object exists
+def add_itemGOOD(item: str, items: list = None):
+    # list is mutable objects
+    if not items:
+        items: list = []
+    items.append(item)
+    print(f"ID {id(item)}:", items)
+    return items
 
 
-string_append("B")
-string_append("I")
-string_append("C")
+list_a = add_itemGOOD("a")
+list_b = add_itemGOOD("b")
+
+# Stessa cosa per tutti gli oggetti mutable come dict, set, list, string
+# Il codice funziona correttamente ma genera un Side Effects!
+# Prima verificare se esistono, poi eventualmente crearne di nuovi!
+
+# def string_append(s, string="Ciao"):
+#     # string is immutable object
+#     string += s
+#     print(s)
+#     print(string)
+#     return string
+#
+#
+# string_append("B")
+# string_append("I")
+# string_append("C")
 
 # NOT USE a Default Dict
 print("codice non pythonico")
@@ -56,10 +75,18 @@ print("SetDefault for Dict")
 my_dict = {}
 my_dict.setdefault("andrea", []).append("bicher")
 print(my_dict)
+print("Equivalente a...")
 print()
+d = {}
+if "list" not in d:
+    d["list"] = []
+d["list"].append(3)
+print(d)
 
+
+#
+#
 # NOT USE context manager when opening files
-
 file = "testo.txt"
 # if os.path.isfile("testo.txt"):
 #     with open(file, "r") as f:
