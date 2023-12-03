@@ -51,6 +51,7 @@ list_b = add_itemGOOD("b")
 # string_append("C")
 
 # NOT USE a Default Dict
+# BAD
 print("codice non pythonico")
 counts1 = {}
 numbers = [1, 2, 3, 4, 5, 4, 1, 5]
@@ -62,8 +63,9 @@ for key in numbers:
 print(counts1)
 print()
 
+# GOOD
 print("codice pythonico...")
-counts2 = defaultdict(lambda: 0)
+counts2: dict[int, int] = defaultdict(lambda: 0)
 for key in numbers:
     counts2[key] += 1
 
@@ -72,12 +74,12 @@ print()
 
 # SETDefault
 print("SetDefault for Dict")
-my_dict = {}
+my_dict: dict[str, list] = {}
 my_dict.setdefault("andrea", []).append("bicher")
 print(my_dict)
 print("Equivalente a...")
 print()
-d = {}
+d: dict[str, list] = {}
 if "list" not in d:
     d["list"] = []
 d["list"].append(3)
@@ -88,16 +90,17 @@ print(d)
 #
 # NOT USE context manager when opening files
 file = "testo.txt"
-# if os.path.isfile("testo.txt"):
-#     with open(file, "r") as f:
-#         print("leggo il contenuto del file %s" % (file))
-#         time.sleep(2)
-#         print(f.read())
-# else:
-#     print("Non trovo il file...")
-#     time.sleep(2)
-#     print("File %s do not Exists!" % (file))
 
+# BAD
+# se il codice produce un errore PRIMA di arrivare alla chiusura del file
+# se ci dimentichiamo di chiudere il file
+# il file NON risulta accessibile da parte di altri utenti che lo richiedono!
+f = open(file, "r")
+f.read()
+f.close
+
+
+# GOOD
 my_file = Path("./testo.txt")
 if my_file.exists():
     # exists search file or directory
@@ -114,13 +117,32 @@ print()
 
 
 # NOT USE Enumerate
-pass
+# BAD
+lista = ["a", "b", "c"]
+for i in range(len(lista)):
+    val = lista[i]
+    print(i, val)
+
+# GOOD
+for i, val in enumerate(lista):
+    print(i, val)
+
+miodict: dict[str, str] = {}
+
+for i, val in enumerate(miodict):
+    print(i, val)
 
 # Overriding Built-In Names
+# BAD
 # id = 2
 # zip = 234343
 # list = []
+# _id
+# _zip
+# _list sono variabili PRIVATE!
+
+# GOOD
 # possiamo utilizzare:
 id_ = 2
 zip_ = 123456
-list_ = []
+list_: list = []
