@@ -1,19 +1,23 @@
 from varname import nameof
 
 
-uno = [10]
+uno = [1, 10, 100, 1000]
+due = [2, 20, 200, 2000]
 print(type(uno), nameof(uno))
 
 
-lista = ["uno", "due", "tre"]
+lista = ["uno", "due", "tre", "quattro", "cinque"]
 
 
 for val in lista:
     if val not in globals():
-        globals()[val] = [3]
+        exec(f"{val} = [3]")
+
 
 print(f"""
-    uno: {uno}
-    due: {due}
-    tre: {tre}
+uno: {uno}
+due: {due}
+tre: {tre}
+quatro: {quattro}
+cinque: {cinque}
 """)
