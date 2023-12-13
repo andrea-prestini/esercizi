@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template, request, url_for
 from markupsafe import escape
 import sqlite3 as sq
 
@@ -21,8 +21,7 @@ def index():
     rows = cur.fetchall()
     conn.close()
 
-    welcome_message = rows
-    return render_template('index.html', todos = rows)
+    return render_template('index.html', todos=rows)
 
 
 @app.route('/hello')
@@ -34,3 +33,15 @@ def hello():
 def show_user_profile(username):
     # show the user profile for that user
     return 'User %s' % escape(username)
+
+
+@app.route('/add', methods=['POST'])
+def add_todo():
+    # get data from form
+    title = request.form.get('title')
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute('INSERT INTO todos(title, done) VALUES (?, ?)', (title, 0))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('index'))
