@@ -45,3 +45,14 @@ def add_todo():
     conn.commit()
     conn.close()
     return redirect(url_for('index'))
+
+
+@app.route('/delete/<int:id>', methods=['POST'])
+def delete_todo(id):
+    # get data from form
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute('DELETE FROM todos WHERE id = ?', (id,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('index'))
