@@ -1,18 +1,19 @@
-from functools import wraps 
+from functools import wraps
 import random
 
 # inseriamo un parametro direttamente usato dal decoratore
+
+
 def power_of(exponent):
 
     def decorator(fnc):
 
         def inner():
             return fnc() ** exponent
-        
+
         return inner
 
     return decorator
-
 
 
 @power_of(3)
@@ -33,6 +34,7 @@ def create_decorator(argument):
             return retval
         return wrapper
     return decorator
+
 
 @create_decorator(3)
 def miaFunzione(x):
