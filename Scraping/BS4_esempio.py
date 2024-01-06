@@ -4,7 +4,8 @@ from bs4 import BeautifulSoup
 
 
 # URL of the web page you want to scrape
-url = 'https://teleboario.it'
+domanda = input("Quale url vuoi cercare? ")
+url = "https://" + domanda
 
 # Send a GET request to the URL
 response = requests.get(url)
