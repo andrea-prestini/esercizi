@@ -28,9 +28,10 @@ if response.status_code == 200:
         if parole in link.get('href'):
             lista.append(link.get('href'))
     if len(lista) == 0:
-        print("Non ci sono parole")
+        print("Non ci sono elementi")
     else:
-        print("Ci sono parole")
+        print("Ci sono", len(lista), "elementi")
+        time.sleep(3)
         for val in lista:
             print(val)
             time.sleep(1)
