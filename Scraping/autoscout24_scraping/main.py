@@ -69,18 +69,28 @@ def where_to_search():
     return zip_list
 
 
-if __name__ == "__main__":
-    make = "toyota"
-    model = "iq"
-    version = ""
-    year_from = "2013"
-    year_to = "2018"
-    power_from = ""
-    power_to = ""
-    powertype = "kw"
-    num_pages = 20
-    zipr = 100
+#
+#     model = "iq"
+#     version = ""
+#     year_from = "2013"
+#     year_to = "2018"
+#     power_from = ""
+#     power_to = ""
+#     powertype = "kw"
+#     num_pages = 20
+#     zipr = 100
 
+if __name__ == "__main__":
+    make = str(input("Make: "))
+    model = str(input("Model: "))
+    version = str(input("Version: "))
+    year_from = str(input("Year from: "))
+    year_to = str(input("Year to: "))
+    power_from = str(input("Power from: "))
+    power_to = str(input("Power to: "))
+    powertype = str(input("Power type: "))
+    num_pages = int(input("Number of pages: "))
+    zipr = str(input("Zip radius: "))
     zip_list_file_path = "Miner/capoluoghi.csv"
     downloaded_listings_file = f"listings/listings_{make}_{model}.csv"
     output_file_preprocessed = f"listings/listings_{make}_{model}_preprocessed.csv"
