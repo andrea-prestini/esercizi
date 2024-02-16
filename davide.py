@@ -1,3 +1,8 @@
+"""
+Semplice calcolatrice usando classi senza istanza
+"""
+
+
 class Calcolatrice:
     print("Benvenuto nella nostra calcolatrice!")
     print("1- Somma")
