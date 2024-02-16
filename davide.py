@@ -7,9 +7,13 @@ class Calcolatrice:
 
     @staticmethod
     def inserimento():
-        x = int(input("Inserisci il primo numero: "))
-        y = int(input("Inserisci il secondo numero: "))
-        return x, y
+        try:
+            x = int(input("Inserisci il primo numero: "))
+            y = int(input("Inserisci il secondo numero: "))
+            return x, y
+        except ValueError:
+            print("Inserisci un numero!")
+            return Calcolatrice.inserimento()
 
     @staticmethod
     def somma():

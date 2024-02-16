@@ -6,9 +6,13 @@ class Calcolatrice:
     print("4- Divisione")
 
     def inserimento(self):
-        x = int(input("Inserisci il primo numero: "))
-        y = int(input("Inserisci il secondo numero: "))
-        return x, y
+        try:
+            x = int(input("Inserisci il primo numero: "))
+            y = int(input("Inserisci il secondo numero: "))
+            return x, y
+        except ValueError:
+            print("Inserisci un numero!")
+            return self.inserimento()
 
     def somma(self):
         a, b = self.inserimento()
