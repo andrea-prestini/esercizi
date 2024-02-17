@@ -44,7 +44,7 @@ class Calcolatrice:
             print("Non posso dividere per ZERO!")
 
 
-Calcolatrice()
+# Calcolatrice()
 
 while True:
     what = input("Quale operazione vuoi effettuare? ")
