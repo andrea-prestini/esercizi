@@ -38,22 +38,25 @@ class Calcolatrice:
     @staticmethod
     def divisione():
         a, b = Calcolatrice.inserimento()
-        print("La divisione e' ", a / b)
+        try:
+            print("La divisione e' ", a / b)
+        except ZeroDivisionError:
+            print("Non posso dividere per ZERO!")
 
 
-c = Calcolatrice()
+Calcolatrice()
 
 while True:
     what = input("Quale operazione vuoi effettuare? ")
 
     if what == "1":
-        c.somma()
+        Calcolatrice.somma()
     elif what == "2":
-        c.sottrazione()
+        Calcolatrice.sottrazione()
     elif what == "3":
-        c.moltiplicazione()
+        Calcolatrice.moltiplicazione()
     elif what == "4":
-        c.divisione()
+        Calcolatrice.divisione()
     else:
         print("Fine procedura")
         break
