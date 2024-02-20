@@ -88,7 +88,7 @@ class Logger(metaclass=SingletonArjan):
 # print(logger2)
 
 
-"""POOL"""
+"""POOL reusable object"""
 
 
 class Reusable:
