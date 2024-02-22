@@ -59,7 +59,7 @@ class Report(ABC):
 
     @abstractmethod
     def make_report_body(self):
-        pass
+        "metodo astratto che forza la chiamata ai metodi figli"
 
     def make_report(self):
         "HEADER dei report da generare nelle classi figlie"
