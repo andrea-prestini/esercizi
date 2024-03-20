@@ -31,7 +31,9 @@ class Casa:
 # Esempio di utilizzo:
 lista_oggetti_casa = ["Lampada", "Televisore",
                       "Frigorifero", "Asciugatrice", "Finestra"]
+
 oggetti_casa = Casa.crea_oggetti_da_lista(lista_oggetti_casa)
+
 for oggetto in oggetti_casa:
     oggetto.get_stato()
     time.sleep(1)
