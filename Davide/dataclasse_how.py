@@ -12,7 +12,9 @@ class Prodotto:
 
     def __repr__(self) -> str:
         return (
-            f"Prodotto {self.nome}, prezzo={self.prezzo}, quantità={self.quantita}"
+            f"Prodotto {self.nome}"
+            f"prezzo={self.prezzo}"
+            f"quantità={self.quantita}"
         )
 
     def __eq__(self, other):
